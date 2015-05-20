@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="PostRepository">
+
+  <!-- insert시 키값 자동증가 -->
+  <insert id="insert" parameterType="map"
+          useGeneratedKeys="true" keyProperty="postid" keyColumn="postid">
+    <selectKey keyProperty="postid" resultType="int" order="BEFORE">
+      SELECT MAX(postid) + 1 AS postid FROM POST
+    </selectKey>
+    INSERT INTO POST (postid, category, maker, password, phone, title, itemname, price, content, makedate, imagefile)
+    VALUES (#{postid}, #{category}, #{maker},#{password},#{phone},#{title},#{itemname},#{price},#{content},#{makedate},#{imagefile})
+  </insert>
+
+  <select id="select" resultType="map">
+    SELECT * FROM POST WHERE POSTID = #{value}
+  </select>
+
+  <select id="selectAll" resultType="map">
+    SELECT * FROM POST
+  </select>
+
+  <delete id="delete" parameterType="int">
+    DELETE FROM POST WHERE POSTID = #{value}
+  </delete>
+
+</mapper>

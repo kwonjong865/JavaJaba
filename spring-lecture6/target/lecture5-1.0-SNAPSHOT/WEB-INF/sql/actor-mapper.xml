@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="ActorRepository">
+
+  <!-- insert시 키값 자동증가 -->
+  <insert id="insert" parameterType="map"
+          useGeneratedKeys="true" keyProperty="actor_id" keyColumn="actor_id">
+    <selectKey keyProperty="actor_id" resultType="int" order="BEFORE">
+      SELECT MAX(actor_id) + 1 AS actor_id FROM ACTOR
+    </selectKey>
+    INSERT INTO ACTOR (actor_id, first_name, last_name)
+    VALUES (#{actor_id}, #{first_name}, #{last_name})
+  </insert>
+
+  <select id="select" resultType="map">
+    SELECT * FROM ACTOR WHERE ACTOR_ID = #{value}
+  </select>
+
+  <select id="selectAll" resultType="map">
+    SELECT * FROM ACTOR
+  </select>
+
+  <delete id="delete" parameterType="int">
+    DELETE FROM ACTOR WHERE ACTOR_ID = #{value}
+  </delete>
+
+</mapper>
