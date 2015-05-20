@@ -5,6 +5,8 @@ import java.util.Map;
 
 public interface ActorRepository {
 
+	boolean insert(Map actor);
+	
 	Map select(Integer actorId);
 
 	List<Map> selectAll();

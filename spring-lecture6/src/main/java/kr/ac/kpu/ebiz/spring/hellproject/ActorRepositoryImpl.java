@@ -7,6 +7,10 @@ import java.util.Map;
 
 public class ActorRepositoryImpl extends SqlSessionDaoSupport implements ActorRepository {
 
+	public boolean insert(Map actor) {
+		return getSqlSession().insert("ActorRepository.insert", actor) > 0;
+	}
+
 	public Map select(Integer actorId) {
 		return getSqlSession().selectOne("ActorRepository.select", actorId);
 	}
