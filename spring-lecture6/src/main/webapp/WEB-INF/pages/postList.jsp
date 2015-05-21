@@ -13,7 +13,8 @@
     <title>게시판</title>
 </head>
 <body>
-<table width="980" border="1"  cellspacing="0">
+
+  <table width="980" border="1"  cellspacing="0">
   <tr>
     <th width="10%" scope="col">번호</th>
     <th width="15%" scope="col">분류</th>
@@ -21,18 +22,23 @@
     <th width="40%" scope="col">제목</th>
     <th width="20%" scope="col">등록일</th>
   </tr>
+    </table>
+    <div style="width: 1000px; height: 300px; overflow: auto">
+      <table width="980" border="1"  cellspacing="0">
 <c:forEach var="post" items="${postList}" varStatus="status">
   <tr>
-    <td align="center">${post.postid}</td>
-    <td align="center">${post.category}</td>
-    <td align="center">${post.maker}</td>
-    <td>
-      <a href="detailView.jsp?postId=${post.postid}">${post.title}</a>
+    <td  width="10%" align="center">${post.postid}</td>
+    <td  width="15%" align="center">${post.category}</td>
+    <td  width="15%" align="center">${post.maker}</td>
+    <td  width="40%">
+      <a href="/postDetail?postId=${post.postid}">${post.title}</a>
     </td>
-    <td align="center">${post.makedate}</td>
+    <td  width="20%" align="center">${post.makedate}</td>
   </tr>
 </c:forEach>
 </table>
+  </div>
+<a href="/postForm">글쓰기</a>
 
 </body>
 </html>
