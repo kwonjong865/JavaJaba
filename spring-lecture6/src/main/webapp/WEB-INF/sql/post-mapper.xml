@@ -13,6 +13,20 @@
     VALUES (#{postid}, #{category}, #{maker},#{password},#{phone},#{title},#{itemname},#{price},#{content},#{makedate},#{imagefile})
   </insert>
 
+  <update id="update">
+    update POST set
+    category = #{category},
+    password = #{password},
+    phone = #{phone},
+    title = #{title},
+    itemname = #{itemname},
+    price = #{price},
+    content = #{content},
+    makedate = #{makedate},
+    imagefile = #{imagefile}
+    where postid = #{postid}
+  </update>
+
   <select id="select" resultType="map">
     SELECT * FROM POST WHERE POSTID = #{value}
   </select>

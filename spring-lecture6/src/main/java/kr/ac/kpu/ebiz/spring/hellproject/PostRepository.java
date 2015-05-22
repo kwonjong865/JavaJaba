@@ -7,6 +7,8 @@ public interface PostRepository {
 
 	boolean insert(Map post);
 
+	boolean update(Map post);
+
 	Map select(Integer postId);
 
 	List<Map> selectAll();

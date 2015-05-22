@@ -7,17 +7,15 @@ import java.util.Map;
 
 public class PostRepositoryImpl extends SqlSessionDaoSupport implements PostRepository {
 
-	public boolean insert(Map post) {
-		return getSqlSession().insert("PostRepository.insert", post) > 0;
-	}
+	public boolean insert(Map post) {return getSqlSession().insert("PostRepository.insert", post) > 0;}
+
+	public boolean update(Map post) {return getSqlSession().update("PostrRepository.update", post) > 0;}
 
 	public Map select(Integer postId) {
 		return getSqlSession().selectOne("PostRepository.select", postId);
 	}
 
-	public List<Map> selectAll() {
-		return getSqlSession().selectList("PostRepository.selectAll");
-	}
+	public List<Map> selectAll() {return getSqlSession().selectList("PostRepository.selectAll");}
 
 	public boolean delete(int postId) {
 		return getSqlSession().delete("PostRepository.delete", postId) > 0;
