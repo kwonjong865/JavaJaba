@@ -7,25 +7,24 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.util.HashMap;
-import java.util.Map;
+/**
+ * Created by hwan on 2015-05-22.
+ */
+
 
 @Controller
-@RequestMapping("/InsertController")
-public class InsertController {
+@RequestMapping("/postDelete")
+public class PostDeleteController {
 
     @Autowired
-    ActorRepository actorRepository;
+    PostRepository postRepository;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView insert(@RequestParam String fn, String ln) {
-        Map actor = new HashMap();
-        actor.put("first_name", fn);
-        actor.put("last_name", ln);
-        actorRepository.insert(actor);
+    public ModelAndView delete(@RequestParam String postId) {
+        postRepository.delete(Integer.parseInt(postId));
 
-        ModelAndView mav = new ModelAndView("/hello");
-        mav.addObject("actors", actorRepository.selectAll());
+        ModelAndView mav = new ModelAndView("/postList");
+        mav.addObject("postList", postRepository.selectAll());
         return mav;
     }
 }

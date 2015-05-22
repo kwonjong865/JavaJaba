@@ -7,8 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.UnsupportedEncodingException;
-import java.net.URLDecoder;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -25,7 +23,7 @@ public class PostInsertController {
 
     @RequestMapping(method = RequestMethod.POST)
     public ModelAndView insert(@RequestParam String category, String maker, String password, String phone,
-                               String title,String itemName, String price, String content, String imageFile) throws UnsupportedEncodingException {
+                               String title,String itemName, String price, String content, String imageFile) {
         Map post = new HashMap();
         post.put("category", category);
         post.put("maker",maker);

@@ -18,10 +18,14 @@ public class InsertController {
     ActorRepository actorRepository;
 
     @RequestMapping(method = RequestMethod.GET)
-    public void insert(@RequestParam String fn, String ln) {
+    public ModelAndView insert(@RequestParam String fn, String ln) {
         Map actor = new HashMap();
         actor.put("first_name", fn);
         actor.put("last_name", ln);
         actorRepository.insert(actor);
+
+        ModelAndView mav = new ModelAndView("/hello");
+        mav.addObject("actors", actorRepository.selectAll());
+        return mav;
     }
 }

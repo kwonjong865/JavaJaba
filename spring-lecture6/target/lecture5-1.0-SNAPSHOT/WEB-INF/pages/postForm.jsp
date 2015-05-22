@@ -19,7 +19,7 @@
 </head>
 <body>
 
-  <form name="writeFrom" method="post" action = "/postInsert" accept-charset="utf-8">
+  <form name="writeFrom" method="post" action = "/postInsert">
     <table width="514" border="1" align="center" cellspacing="0" cellpadding="3">
       <tr>
         <th scope="row" height="10%">물품범주</th>

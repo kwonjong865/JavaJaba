@@ -10,7 +10,7 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.Map;
 
 @Controller
-@RequestMapping("/modifyController")
+@RequestMapping("/modify")
 public class ModifyController {
 
 	@Autowired

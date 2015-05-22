@@ -12,18 +12,19 @@ import java.util.HashMap;
 import java.util.Map;
 
 /**
- * Created by hwan on 2015-05-20.
+ * Created by hwan on 2015-05-22.
  */
+
 @Controller
-@RequestMapping("/postInsert")
-public class PostInsertController {
+@RequestMapping("/postUpdate")
+public class PostUpdateController {
 
     @Autowired
     PostRepository postRepository;
 
-    @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView insert(@RequestParam String category, String maker, String password, String phone,
-                               String title,String itemName, String price, String content, String imageFile) {
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView update(@RequestParam String category, String maker, String password, String phone,
+            String title,String itemName, String price, String content, String imageFile, String postId) {
         Map post = new HashMap();
         post.put("category", category);
         post.put("maker",maker);
@@ -35,10 +36,12 @@ public class PostInsertController {
         post.put("content",content);
         post.put("makedate",new Date());
         post.put("imagefile",imageFile);
-        postRepository.insert(post);
+        post.put("postid",postId);
+        postRepository.update(post);
 
         ModelAndView mav = new ModelAndView("/postList");
         mav.addObject("postList", postRepository.selectAll());
         return mav;
     }
+
 }
