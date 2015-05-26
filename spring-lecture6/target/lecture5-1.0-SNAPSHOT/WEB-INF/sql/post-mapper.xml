@@ -13,8 +13,8 @@
     VALUES (#{postid}, #{category}, #{maker},#{password},#{phone},#{title},#{itemname},#{price},#{content},#{makedate},#{imagefile})
   </insert>
 
-  <update id="update">
-    update POST set
+  <update id="update" parameterType="map">
+    UPDATE POST SET
     category = #{category},
     password = #{password},
     phone = #{phone},
@@ -24,7 +24,7 @@
     content = #{content},
     makedate = #{makedate},
     imagefile = #{imagefile}
-    where postid = #{postid}
+    WHERE postid = #{postid}
   </update>
 
   <select id="select" resultType="map">
@@ -33,6 +33,10 @@
 
   <select id="selectAll" resultType="map">
     SELECT * FROM POST
+  </select>
+
+  <select id="selectCategory" resultType="map">
+    SELECT * FROM POST WHERE category = #{value}
   </select>
 
   <delete id="delete" parameterType="int">

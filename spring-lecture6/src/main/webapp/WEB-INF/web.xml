@@ -55,8 +55,15 @@
 		<url-pattern>/</url-pattern>
 	</servlet-mapping>
 
+	<servlet-mapping>
+		<servlet-name>default</servlet-name>
+		<url-pattern>*.css</url-pattern>
+		<url-pattern>*.js</url-pattern>
+		<url-pattern>*.gif</url-pattern>
+		<url-pattern>*.png</url-pattern>
+	</servlet-mapping>
 	<!-- ================ -->
-	<!--  Servlet Filter  -->
+	<!--  Servlet Filter  -->ㄱ
 	<!-- ================ -->
 
 	<filter>
@@ -76,6 +83,8 @@
 		<filter-name>EncodingFilter</filter-name>
 		<servlet-name>dispatcher</servlet-name>
 	</filter-mapping>
+
+
 
 	<!-- =================== -->
 	<!--  Welcome File List  -->

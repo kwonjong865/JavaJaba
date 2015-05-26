@@ -14,5 +14,8 @@
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/js/wow.min.js" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/less" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/sql/post-mapper.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resource" charset="x-windows-949" />
   </component>
 </project>
