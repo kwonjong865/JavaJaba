@@ -13,5 +13,7 @@ public interface PostRepository {
 
 	List<Map> selectAll();
 
+	List<Map> selectCategory(String category);
+
 	boolean delete(int postId);
 }
