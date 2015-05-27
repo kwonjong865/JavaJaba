@@ -4,9 +4,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.io.UnsupportedEncodingException;
+import java.util.HashMap;
+import java.util.Map;
 
 
 /**
@@ -15,17 +18,22 @@ import java.io.UnsupportedEncodingException;
 
 
 @Controller
-@RequestMapping("/postCategory")
-public class PostCategoryListController {
+@RequestMapping("/postSearchController")
+public class PostSearchController {
 
     @Autowired
     PostRepository postRepository;
 
-    @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView postList(String itemCategory){
+    @RequestMapping(method = RequestMethod.POST)
+    public ModelAndView postList(@RequestParam String select, String keyword){
+        System.out.println(select + keyword);
+        Map post = new HashMap();
+        post.put("select", select);
+        post.put("keyword", keyword);
+
 
         ModelAndView mav = new ModelAndView("/postList");
-        mav.addObject("postList", postRepository.selectCategory(itemCategory));
+        mav.addObject("postList", postRepository.selectSearch(post));
         return mav;
     }
 }

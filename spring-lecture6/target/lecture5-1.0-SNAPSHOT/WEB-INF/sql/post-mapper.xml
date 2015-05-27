@@ -43,4 +43,7 @@
     DELETE FROM POST WHERE POSTID = #{value}
   </delete>
 
+  <select id="selectSearch" resultType="map">
+    SELECT * FROM POST WHERE ${select} LIKE '%${keyword}%'
+  </select>
 </mapper>

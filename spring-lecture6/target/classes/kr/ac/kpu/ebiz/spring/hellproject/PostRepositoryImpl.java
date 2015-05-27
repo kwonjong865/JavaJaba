@@ -17,6 +17,8 @@ public class PostRepositoryImpl extends SqlSessionDaoSupport implements PostRepo
 
 	public List<Map> selectCategory(String category) {return getSqlSession().selectList("PostRepository.selectCategory", category);}
 
+	public List<Map> selectSearch(Map post) {return getSqlSession().selectList("PostRepository.selectSearch", post);}
+
 	public boolean delete(int postId) {
 		return getSqlSession().delete("PostRepository.delete", postId) > 0;
 	}

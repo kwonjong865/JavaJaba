@@ -84,6 +84,7 @@
 <body>
 
   <form name="writeFrom" method="post" action = "/postInsert">
+    <input type="hidden" name="maker" value="<%=session.getAttribute("USERID") %>">
     <table width="514" border="1" align="center" cellspacing="0" cellpadding="3">
       <tr>
         <th scope="row" height="10%">물품범주</th>
@@ -101,7 +102,6 @@
       <tr>
         <th scope="row" height="10%">제목</th>
         <td><input name="title" type="text"  maxlength="23" size="50">
-          <input type="hidden" name="maker" value="<%=session.getAttribute("USERID") %>">
         </td>
       </tr>
       <tr>

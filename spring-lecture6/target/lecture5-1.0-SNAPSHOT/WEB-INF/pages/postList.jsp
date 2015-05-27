@@ -52,7 +52,7 @@
     <div class="category"><a href="/postCategory?itemCategory=<%=URLEncoder.encode("가구", "utf-8")%>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image6','','../resource/image/가구.png',6)"><img src="../resource/image/furniture.png" width="80" height="50" id="Image6"></a></div>
     <div class="category"><a href="/postCategory?itemCategory=<%=URLEncoder.encode("기타", "utf-8")%>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image7','','../resource/image/기타.png',7)"><img src="../resource/image/etc.png" width="80" height="50" id="Image7"></a></div>
   </div>
-  <table width="980" border="1"  cellspacing="0">
+  <table width="980" border="0"  cellspacing="0">
   <tr>
     <th width="10%" scope="col">번호</th>
     <th width="15%" scope="col">분류</th>
@@ -62,7 +62,7 @@
   </tr>
     </table>
     <div style="width: 1000px; height: 300px; overflow: auto">
-      <table width="980" border="1"  cellspacing="0">
+      <table width="980" border="0"  cellspacing="0">
 <c:forEach var="post" items="${postList}" varStatus="status">
   <tr>
     <td  width="10%" align="center">${post.postid}</td>
@@ -76,6 +76,27 @@
 </c:forEach>
 </table>
   </div>
-<a href="/postForm">글쓰기</a>
+
+  </div>
+
+</td>
+<table width="980" border="0" cellspacing="0">
+    <tr>
+    <td width=30%></td>
+    <td align="center" WIDTH="40%">
+    <form action="/postSearchController" method="post" accept-charset="utf-8">
+    <select name="select">
+      <option value="title">제목</option>
+      <option value="content">내용</option>
+      <option value="itemname">물품명</option>
+    </select>
+    <input type="text" size="20" maxlength="30" name="keyword" />
+    <input type="submit" value="검색" />
+  </form>
+    </td>
+    <td align="right" WIDTH="30%"><a href="/postForm">글쓰기&nbsp;&nbsp;</a></td>
+  </tr>
+</table>
+
 </body>
 </html>

@@ -11,6 +11,7 @@
 <html>
 <head>
   <title>게시글</title>
+
   <style type="text/css">
     a {
       text-decoration: none
@@ -36,6 +37,7 @@
 <body>
 <% Map post = (Map) request.getAttribute("post");%>
 <form name="writeFrom" method="post" action = "/postInsert">
+  <input type="hidden" name="maker" value="<%=session.getAttribute("USERID") %>">
   <table width="514" border="1" align="center" cellspacing="0" cellpadding="3">
     <tr>
       <th scope="row" height="10%">물품범주</th>
@@ -52,25 +54,24 @@
     </tr>
     <tr>
       <th scope="row" height="10%">제목</th>
-      <td><input name="title" type="text"  maxlength="23" size="50">
-        <input type="hidden" name="maker" value="<%=session.getAttribute("USERID") %>">
+      <td><input name="title" type="text" value="<%=post.get("title")%>" maxlength="23" size="50">
       </td>
     </tr>
     <tr>
       <th scope="row" height="10%">물품이름</th>
-      <td><input type="text" name="itemName" maxlength="10"></td>
+      <td><input type="text" name="itemName" value="<%=post.get("itemname")%>" maxlength="10"></td>
     </tr>
     <tr>
       <th scope="row" height="10%">물품가격</th>
-      <td><input type="text" name="price" maxlength="10">원</td>
+      <td><input type="text" name="price" value="<%=post.get("price")%>" maxlength="10">원</td>
     </tr>
     <tr>
       <th scope="row" height="10%">연락처</th>
-      <td><input type="text" name="phone" maxlength="20"></td>
+      <td><input type="text" name="phone" value="<%=post.get("phone")%>" maxlength="20"></td>
     </tr>
     <tr>
       <th scope="row">물품소개</th>
-      <td><textarea name="content" cols="45" rows="10"></textarea></td>
+      <td><textarea name="content"  cols="45" rows="10"><%=post.get("content")%></textarea></td>
     </tr>
     <tr>
       <th scope="row" height="10%">비밀번호</th>
@@ -84,16 +85,81 @@
     </tr>
   <tr>
     <th colspan="2" scope="row">
-      <input type="submit" value="수정">
+      <input type="button" value="수정" OnClick="javascript:writeCheck();">
       <input type=button value="취소" OnClick="javascript:history.back(-1)">
     </th>
   </tr>
 </table>
-</body>
-</html>
-</head>
-<body>
+</form>
 
+<script language = "javascript"> // 자바 스크립트 시작
+function writeCheck()
+{
+  var form = document.writeFrom;
+
+  if( form.category.value=="선택" )   // form 에 있는 name 값이 없을 때
+  {
+    alert( "카테고리를 선택해 주세요!" ); // 경고창 띄움
+    form.category.focus();   // form 에 있는 name 위치로 이동
+    return;
+  }
+
+  if( !form.title.value )
+  {
+    alert( "제목을 입력해 주세요!" );
+    form.title.focus();
+    return;
+  }
+
+  if( !form.itemName.value )
+  {
+    alert( "상품 이름을 입력해 주세요!" );
+    form.itemName.focus();
+    return;
+  }
+
+  var number = /[^0-9]/; //숫자만 허용
+  //공백검사 -> 숫자검사
+  if( !form.price.value )
+  {
+    alert( "가격을 입력해 주세요!" );
+    form.price.focus();
+    return;
+    //숫자만 입력 허용
+  }else if(form.price.value.search(number)!=-1 || form.price.value.length == 0 ){
+    alert("올바른 가격을 입력해 주세요!(숫자)");
+    form.price.focus();
+    return;
+  }
+
+  if( !form.phone.value )
+  {
+    alert( "연락처를 입력해 주세요!" );
+    form.phone.focus();
+    return;
+  }
+
+  if( !form.content.value )
+  {
+    alert( "내용을 입력해 주세요!" );
+    form.content.focus();
+    return;
+  }
+  var ps = "<%=post.get("password")%>";
+  if( !form.password.value )
+  {
+    alert( "비밀번호를 입력해 주세요!" );
+    form.password.focus();
+    return;
+  }else if(ps!=form.password.value){
+    alert( "비밀번호가 틀렸습니다!" );
+    form.password.focus();
+    return;
+  }
+
+  form.submit();
+}
+</script>
 </body>
 </html>
 

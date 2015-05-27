@@ -22,7 +22,7 @@ public class PostCategoryListController {
     PostRepository postRepository;
 
     @RequestMapping(method = RequestMethod.GET)
-    public ModelAndView postList(String itemCategory) throws UnsupportedEncodingException {
+    public ModelAndView postList(String itemCategory){
 
         ModelAndView mav = new ModelAndView("/postList");
         mav.addObject("postList", postRepository.selectCategory(itemCategory));

@@ -15,5 +15,9 @@ public interface PostRepository {
 
 	List<Map> selectCategory(String category);
 
+	List<Map> selectSearch(Map post);
+
 	boolean delete(int postId);
+
+
 }
