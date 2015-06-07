@@ -8,7 +8,7 @@
   <meta name="description" content="">
   <meta name="author" content="">
 
-  <title>Creative - Start Bootstrap Theme</title>
+  <title>KPU-중고</title>
 
   <!-- Bootstrap Core CSS -->
   <link rel="stylesheet" href="resource/css/bootstrap.min.css" type="text/css">
@@ -49,7 +49,7 @@
 
 <header>
   <div class="header-content" style="top: 500px; font-size:70px;">
-    필요하신 책이 있으시면 <BR> PU-BOOK을 이용하십시오
+    필요하신 물건이 있으시면 <BR> PU-중고를 이용하십시오
     <div class="header-content-inner" style=" margin-right:0; margin-top:50px">
 
       <form class="form-horizontal" id = "formlogin"style="margin-left: 400px;">
