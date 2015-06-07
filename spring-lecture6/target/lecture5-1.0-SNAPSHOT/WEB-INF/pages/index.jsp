@@ -50,10 +50,10 @@
 <header>
   <div class="header-content" style="top: 500px; font-size:70px;">
     필요하신 책이 있으시면 <BR> PU-BOOK을 이용하십시오
-    <div class="header-content-inner" style=" margin-right:0; margin-top:200px">
+    <div class="header-content-inner" style=" margin-right:0; margin-top:50px">
 
-      <form class="form-horizontal" style="margin-left: 400px;">
-        <div class="form-group">
+      <form class="form-horizontal" id = "formlogin"style="margin-left: 400px;">
+        <div class="form-group" id="inputid">
           <div style="float:left">
             <label for="inputEmail3" style="font-size:30px; margin-right:57">Email</label>
           </div>
@@ -61,7 +61,7 @@
             <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
           </div>
         </div>
-        <div class="form-group">
+        <div class="form-group" id="inputpass">
           <div style="float:left">
             <label for="inputPassword3" style="font-size:30px;">Password</label>
           </div>
@@ -70,9 +70,53 @@
           </div>
         </div>
         <div class="form-group">
-          <div class="col-sm-offset-2 col-sm-7">
-            <button type="submit"  style="font-size:20px" class="btn btn-default">login</button>
-            <button style="font-size:20px" class="btn btn-default">Sign in</button>
+          <div class=" col-sm-7" id = "inputbutton">
+            <button type="button" class="btn btn-default">Login</button>
+            <button type="button" class="btn btn-default" onclick="Join()">Join</button>
+
+          </div>
+        </div>
+      </form>
+
+      <form class="form-horizontal" id = "formJoin"style="margin-left: 400px; display:none;">
+        <div class="form-group" id="join-name">
+          <div style="float:left;margin-right: 58px;">
+            <label for="name" style="font-size:30px;">Name</label>
+          </div>
+          <div class="col-sm-7" style="float:left">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-group" id="joinid">
+          <div style="float:left">
+            <label for="inputEmail3" style="font-size:30px; margin-right:57">Email</label>
+          </div>
+          <div class="col-sm-7" style="float:left">
+            <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
+          </div>
+        </div>
+        <div class="form-group" id="joinpass">
+          <div style="float:left">
+            <label for="inputPassword3" style="font-size:30px;">Password</label>
+          </div>
+          <div class="col-sm-7" style="float:left">
+            <input type="pass" class="form-control" id="inputPassword3" placeholder="Password">
+          </div>
+        </div>
+        <div class="form-group" id="join-repass">
+          <div style="float:left;margin-right: 30px;">
+            <label for="repass" style="font-size:30px;">re-Pass</label>
+          </div>
+          <div class="col-sm-7" style="float:left">
+            <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
+          </div>
+        </div>
+
+        <div class="form-group">
+          <div class=" col-sm-7" id = "join-button">
+            <button type="button" class="btn btn-default">Join</button>
+            <button type="button" class="btn btn-default" onclick="Back()">back</button>
+
           </div>
         </div>
       </form>
@@ -81,7 +125,39 @@
 </header>
 
 
+<script language="JavaScript">
 
+
+  function Join()
+  {
+    var loginform = document.getElementById("formlogin");
+
+
+    loginform.style.display = "none";
+
+
+    var joinform = document.getElementById("formJoin");
+
+
+    joinform.style.display = "block";
+
+
+  }
+  function Back(){
+    var loginform = document.getElementById("formlogin");
+
+
+    loginform.style.display = "block";
+
+
+    var joinform = document.getElementById("formJoin");
+
+
+    joinform.style.display = "none";
+  }
+</script>
+
+</head>
 <!-- jQuery -->
 <script src="resource/js/jquery.js"/>
 
@@ -94,6 +170,6 @@
 <script src="resource/js/wow.min.js"/>
 
 <!-- Custom Theme JavaScript -->
-<script src="resource/js/creative.js"/>
+<script src="/resource/js/creative.js"/>
 </body>
 </html>
