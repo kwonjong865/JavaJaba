@@ -7,7 +7,7 @@ CREATE TABLE javajaba.post (
    title VARCHAR(20),
    itemname VARCHAR(20),
    price INT,
-   content VARCHAR(20),
+   content VARCHAR(100),
    makedate DATE,
    imagefile VARCHAR(20)
 

@@ -83,7 +83,8 @@
 </head>
 <body>
 
-  <form name="writeFrom" method="post" action = "/postInsert">
+  <form name="writeFrom" method="post" action = "/postInsert" enctype="multipart/form-data">
+    <!-- 원종아 여기야 ID 세션!! -->
     <input type="hidden" name="maker" value="<%=session.getAttribute("USERID") %>">
     <table width="514" border="1" align="center" cellspacing="0" cellpadding="3">
       <tr>
@@ -128,7 +129,7 @@
         <th scope="row" height="10%">물품사진</th>
         <td>
 
-          <input type="file" name="imageFile" size=40>
+        <input type="file" name="imageFile" size=40>
 
         </td>
       </tr>

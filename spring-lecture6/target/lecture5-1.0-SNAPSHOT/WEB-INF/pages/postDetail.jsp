@@ -44,8 +44,7 @@
 </head>
 <body>
 <% Map post = (Map) request.getAttribute("postDetail");%>
-<table width="800" border="1" cellspacing="0" cellpadding="5"
-       align="center">
+<table width="800" border="1" cellspacing="0" cellpadding="5" align="center">
   <tr>
     <td>&nbsp;&nbsp;제&nbsp;&nbsp;&nbsp;&nbsp;목 : <%=post.get("title")%></td>
   </tr>
@@ -63,21 +62,31 @@
     <td>&nbsp;&nbsp;등록일 : <%=post.get("makedate")%></td>
   </tr>
 </table>
+
 <table width="800" border="0" cellspacing="0" cellpadding="5"
        align="center">
   <tr>
     <td align="center">
+      <!-- 내용 스크롤링 -->
       <div style="width: 100%; height: 470px; overflow: auto">
-        <!-- 내용 스크롤링 -->
-        <!-- db에서 불러온 텍스트를 줄바꿈해주기 위해 replasceAll -->
-        <%=post.get("content")%><br>
+        <!-- db에서 불러온 텍스트를 줄바꿈해주기 위해 replace -->
         <%
-          if (post.get("imagefile")!= null) {
+          String content = (String) post.get("content");
+          content = content.replaceAll("\r\n","<br>"); //엔터 처리
+          content = content.replaceAll("\u0020","&nbsp;"); //스페이스 처리
+        %>
+          <%=content%>
+        <br><br>
+        <%
+          //이미지파일이 포함된 게시글인지 아닌지 판별
+          String img = (String) post.get("imagefile");
+          if(post.get("imagefile")==null) {
+
+          }else if (img.length()>1) {
         %>
         <!--상대경로! 자신의 위치에서 경로 찾음!-->
-        <img src="imageFile/<%=post.get("imagefile")%>" width=600//>
+        <img src="../resource/uploadFile/<%=post.get("imagefile")%>" width=600/>
         <%
-
           }
         %>
 
@@ -105,15 +114,15 @@
       } else {
       %> <a href="#" onClick="buy()">[구매]</a> <%
       }
-    %> &nbsp;&nbsp; <a
-            href="javascript:history.back(-1)">뒤로가기</a>
+    %> &nbsp;&nbsp; <a href="javascript:history.back(-1)">뒤로가기</a>
     </td>
   </tr>
 </table>
+<%
+  String what = request.getSession().getServletContext().getRealPath("/");
+  System.out.println("**********************************경로확인" + what);
+%>
 </body>
 </html>
 </head>
-<body>
-
-</body>
 </html>

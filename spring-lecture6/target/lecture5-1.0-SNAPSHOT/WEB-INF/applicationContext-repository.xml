@@ -17,6 +17,16 @@
 		<constructor-arg value="false"/>
 	</bean>
 
+	<bean id="multipartResolver"
+
+		  class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+
+		<!-- maximum file size in bytes 50MB -->
+
+		<property name="maxUploadSize" value="52428800" />
+
+	</bean>
+
 	<!-- ========================= MYBATIS DEFINITION ========================= -->
 
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
