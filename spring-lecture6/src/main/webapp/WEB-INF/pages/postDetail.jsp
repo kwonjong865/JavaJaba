@@ -14,7 +14,7 @@
     <!--[if lt IE 9]>
     <script src="//html5shim.googlecode.com/svn/trunk/html5.js"></script>
     <![endif]-->
-    <link href="css/styles.css" rel="stylesheet">
+
     <style type="text/css">
         .layer {
             display: none;
@@ -195,7 +195,7 @@
                             %>
                             <!--/postModify?postId=<%=post.get("postid")%> -->
 
-                            <a href="#"   class="btn btn-link"  onclick="layer_open('layer2')">수정</a>
+                            <a href="/postModify?postId=<%=post.get("postid")%>" class="btn btn-link">수정</a>
 
                             <a href="/postDelete?postId=<%=post.get("postid")%>"  class="btn btn-link">삭제</a>
                             <%
@@ -220,183 +220,6 @@
 <!--right-->
 
 <!-- popup-->
-<div class="layer">
-    <div class="bg"></div>
-    <div id="layer2" class="pop-layer">
-        <div class="pop-container">
-            <div class="pop-conts">
-                <form name="writeFrom" method="post" action="/postInsert">
-                    <input type="hidden" name="maker" value="<%=session.getAttribute("USERID") %>">
-                    <table width="100%" border="1" align="center" cellspacing="0" cellpadding="3" >
-                        <tr>
-                            <th scope="row" height="10%" class="col-sm-2 control-label">물품범주</th>
-                            <td><label for="select"></label>
-                                <select name="category" id="select" class="form-control">
-                                    <option selected="selected">선택</option>
-                                    <option value="전자제품">전자제품</option>
-                                    <option value="스포츠">스포츠</option>
-                                    <option value="의류패션">의류패션</option>
-                                    <option value="도서">도서</option>
-                                    <option value="가구">가구</option>
-                                    <option value="기타">기타</option>
-                                </select></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" height="10%">제목</th>
-                            <td>
-                                <input name="title" type="text" class="form-control" value="<%=post.get("title")%>">
-                            </td>
-                        </tr>
-                        <tr>
-                            <th scope="row" height="10%">물품이름</th>
-                            <td><input type="text" name="itemName" class="form-control" maxlength="10"
-                                       value="<%=post.get("itemname")%>"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" height="10%">물품가격</th>
-                            <td><input type="text" name="price" class="form-control" maxlength="10"
-                                       value="<%=post.get("price")%>"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" height="10%">연락처</th>
-                            <td><input type="text" name="phone" class="form-control" maxlength="20"
-                                       value="<%=post.get("phone")%>"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row">물품소개</th>
-                            <td><textarea name="content" cols="45" class="form-control" rows="10"  value="<%=post.get("content")%>"
-                            ></textarea></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" height="10%">비밀번호</th>
-                            <td><input type="password" name="password" class="form-control" maxlength="5"></td>
-                        </tr>
-                        <tr>
-                            <th scope="row" height="10%">물품사진</th>
-                            <td>
-                                <input type="file" name="imageFile" size=40>
-                            </td>
-                        </tr>
-                        <tr>
-                            <th colspan="2" scope="row">
-                                <input type="button"  OnClick="javascript:writeCheck();" value="수정" class="btn btn-primary">
-                                <a href="#" class="btn btn-primary">취소</a>
-                            </th>
-                        </tr>
-
-                    </table>
-                </form>
-                <!--// content-->
-            </div>
-        </div>
-    </div>
-</div>
-
-<!--/container-fluid-->
-
-
-<script type="text/javascript">
-    function layer_open(el){
-
-        var temp = $('#' + el);
-        var bg = temp.prev().hasClass('bg');	//dimmed 레이어를 감지하기 위한 boolean 변수
-
-        if(bg){
-            $('.layer').fadeIn();	//'bg' 클래스가 존재하면 레이어가 나타나고 배경은 dimmed 된다.
-        }else{
-            temp.fadeIn();
-        }
-
-        // 화면의 중앙에 레이어를 띄운다.
-        if (temp.outerHeight() < $(document).height() ) temp.css('margin-top', '-'+temp.outerHeight()/2+'px');
-        else temp.css('top', '0px');
-        if (temp.outerWidth() < $(document).width() ) temp.css('margin-left', '-'+temp.outerWidth()/2+'px');
-        else temp.css('left', '0px');
-
-        temp.find('a.btn').click(function(e){
-            if(bg){
-                $('.layer').fadeOut(); //'bg' 클래스가 존재하면 레이어를 사라지게 한다.
-            }else{
-                temp.fadeOut();
-            }
-            e.preventDefault();
-        });
-
-        $('.layer .bg').click(function(e){	//배경을 클릭하면 레이어를 사라지게 하는 이벤트 핸들러
-            $('.layer').fadeOut();
-            e.preventDefault();
-        });
-
-    }
-</script>
-<script language = "javascript"> // 자바 스크립트 시작
-function writeCheck()
-{
-    var form = document.writeFrom;
-
-    if( form.category.value=="선택" )   // form 에 있는 name 값이 없을 때
-    {
-        alert( "카테고리를 선택해 주세요!" ); // 경고창 띄움
-        form.category.focus();   // form 에 있는 name 위치로 이동
-        return;
-    }
-
-    if( !form.title.value )
-    {
-        alert( "제목을 입력해 주세요!" );
-        form.title.focus();
-        return;
-    }
-
-    if( !form.itemName.value )
-    {
-        alert( "상품 이름을 입력해 주세요!" );
-        form.itemName.focus();
-        return;
-    }
-
-    var number = /[^0-9]/; //숫자만 허용
-    //공백검사 -> 숫자검사
-    if( !form.price.value )
-    {
-        alert( "가격을 입력해 주세요!" );
-        form.price.focus();
-        return;
-        //숫자만 입력 허용
-    }else if(form.price.value.search(number)!=-1 || form.price.value.length == 0 ){
-        alert("올바른 가격을 입력해 주세요!(숫자)");
-        form.price.focus();
-        return;
-    }
-
-    if( !form.phone.value )
-    {
-        alert( "연락처를 입력해 주세요!" );
-        form.phone.focus();
-        return;
-    }
-
-    if( !form.content.value )
-    {
-        alert( "내용을 입력해 주세요!" );
-        form.content.focus();
-        return;
-    }
-    var ps = "<%=post.get("password")%>";
-    if( !form.password.value )
-    {
-        alert( "비밀번호를 입력해 주세요!" );
-        form.password.focus();
-        return;
-    }else if(ps!=form.password.value){
-        alert( "비밀번호가 틀렸습니다!" );
-        form.password.focus();
-        return;
-    }
-
-    form.submit();
-}
-</script>
 <script src="//ajax.googleapis.com/ajax/libs/jquery/2.0.2/jquery.min.js"></script>
 <script src="js/bootstrap.min.js"></script>
 </body>

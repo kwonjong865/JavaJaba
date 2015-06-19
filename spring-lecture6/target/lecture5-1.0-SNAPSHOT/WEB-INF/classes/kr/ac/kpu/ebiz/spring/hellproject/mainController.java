@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-@RequestMapping("/main")
+@RequestMapping("/sessionremove")
 public class mainController {
 
 	@Autowired
@@ -15,7 +15,7 @@ public class mainController {
 
 	@RequestMapping(method = RequestMethod.GET)
 	public ModelAndView world() {
-		ModelAndView mav = new ModelAndView("/main");
+		ModelAndView mav = new ModelAndView("/sessionremove");
 		return mav;
 	}
 

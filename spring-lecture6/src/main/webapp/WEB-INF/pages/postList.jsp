@@ -51,8 +51,9 @@
 
     <div class="side_bar">
         <span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-        ${name}
+        ${name}  <a href="sessionremove" class="btn btn-Link" >로그아웃</a>
         <hr>
+
 
     </div>
 </div>

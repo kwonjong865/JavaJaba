@@ -36,8 +36,8 @@
 </head>
 <body>
 <% Map post = (Map) request.getAttribute("post");%>
-<form name="writeFrom" method="get" action = "/postUpdate">
-  <input type="hidden" name="maker" value="<%=session.getAttribute("USERID") %>">
+<form name="writeFrom" method="post" action = "/postUpdate" enctype="multipart/form-data">
+  <input type="hidden" name="postId" value="<%=post.get("postid")%>">
   <table width="514" border="1" align="center" cellspacing="0" cellpadding="3">
     <tr>
       <th scope="row" height="10%">물품범주</th>
@@ -83,13 +83,13 @@
         <input type="file" name="imageFile" size=40>
       </td>
     </tr>
-  <tr>
-    <th colspan="2" scope="row">
-      <input type="button" value="수정" OnClick="javascript:writeCheck();">
-      <input type=button value="취소" OnClick="javascript:history.back(-1)">
-    </th>
-  </tr>
-</table>
+    <tr>
+      <th colspan="2" scope="row">
+        <input type="button" value="수정" OnClick="javascript:writeCheck();">
+        <input type=button value="취소" OnClick="javascript:history.back(-1)">
+      </th>
+    </tr>
+  </table>
 </form>
 
 <script language = "javascript"> // 자바 스크립트 시작

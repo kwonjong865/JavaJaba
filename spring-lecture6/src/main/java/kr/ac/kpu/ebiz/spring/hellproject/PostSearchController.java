@@ -7,7 +7,6 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.UnsupportedEncodingException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,7 +29,6 @@ public class PostSearchController {
         Map post = new HashMap();
         post.put("select", select);
         post.put("keyword", keyword);
-
 
         ModelAndView mav = new ModelAndView("/postList");
         mav.addObject("postList", postRepository.selectSearch(post));
