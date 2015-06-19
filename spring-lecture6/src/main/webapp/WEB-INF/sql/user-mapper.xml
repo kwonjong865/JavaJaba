@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserRepository">
+
+  <select id="idCheck" resultType="String">
+    SELECT userid FROM usertable WHERE userid = #{value}
+  </select>
+
+  <select id="pwdCheck" resultType="String">
+    SELECT pwd FROM usertable WHERE userid = #{value}
+  </select>
+
+  <select id="name" resultType="String">
+    SELECT username FROM usertable WHERE userid = #{value}
+  </select>
+
+  <insert id="insert" parameterType="map">
+    INSERT INTO usertable(userid, pwd, username, usernum, email, address, mobile)
+    VALUES (#{userId},#{pwd},#{userName},#{userNum}, #{email}, #{address}, #{mobile})
+  </insert>
+
+</mapper>

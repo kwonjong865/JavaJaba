@@ -5,11 +5,8 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 
-import java.io.File;
-import java.io.IOException;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -19,54 +16,32 @@ import java.util.Map;
  */
 
 @Controller
+@RequestMapping("/postUpdate")
 public class PostUpdateController {
+
     @Autowired
     PostRepository postRepository;
 
-    @RequestMapping(value = "/postUpdate", method = RequestMethod.GET)
-    public ModelAndView fileForm() {
-        ModelAndView mv = new ModelAndView();
-        mv.setViewName("fileForm");
-        return mv;
-
-
-    }
-
-    @RequestMapping(value = "/postUpdate", method = RequestMethod.POST)
-    public String fileSubmit(FileDTO dto) {
-        MultipartFile uploadfile = dto.getImageFile();
-        if (uploadfile != null) {
-            String fileName = uploadfile.getOriginalFilename();
-            dto.setFileName(fileName);
-            String directory = "D:\\Develop\\test\\spring-lecture6\\JavaJaba\\spring-lecture6\\target\\lecture5-1.0-SNAPSHOT\\resource\\uploadFile\\";
-            try {
-                File file = new File(directory, fileName);
-                //실제적으로 target\\resource\\uploadFile 여기에 저장되는구나...
-                //"D:\\Develop\\test\\spring-lecture6\\JavaJaba\\spring-lecture6\\target\\lecture5-1.0-SNAPSHOT\\resource\\uploadFile\\"
-                System.out.println("******************************경로확인" + file.getAbsolutePath());
-                uploadfile.transferTo(file);
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
-        }
-
-
+    @RequestMapping(method = RequestMethod.GET)
+    public ModelAndView update(@RequestParam String category, String maker, String password, String phone,
+            String title,String itemName, String price, String content, String imageFile, String postId) {
         Map post = new HashMap();
-        post.put("category", dto.getCategory());
-        post.put("maker",dto.getMaker());
-        post.put("password",dto.getPassword());
-        post.put("phone",dto.getPhone());
-        post.put("title",dto.getTitle());
-        post.put("itemname",dto.getItemName());
-        post.put("price",dto.getPrice());
-        post.put("content",dto.getContent());
+        post.put("category", category);
+        post.put("maker",maker);
+        post.put("password",password);
+        post.put("phone",phone);
+        post.put("title",title);
+        post.put("itemname",itemName);
+        post.put("price",price);
+        post.put("content",content);
         post.put("makedate",new Date());
-        post.put("imagefile",dto.getFileName());
-        post.put("postid", dto.getPostId());
+        post.put("imagefile",imageFile);
+        post.put("postid",postId);
         postRepository.update(post);
 
         ModelAndView mav = new ModelAndView("/postList");
         mav.addObject("postList", postRepository.selectAll());
-        return "redirect:postList";
+        return mav;
     }
+
 }

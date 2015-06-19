@@ -2,24 +2,11 @@
 <project version="4">
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/main/java/kr/ac/kpu/ebiz/spring/hellproject/PostCategoryListController.java" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/java/kr/ac/kpu/ebiz/spring/hellproject/PostRepository.java" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/java/kr/ac/kpu/ebiz/spring/hellproject/PostRepositoryImpl.java" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/java/kr/ac/kpu/ebiz/spring/hellproject/PostSearchController.java" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/bower_components" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/css" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/dist" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/font-awesome" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/fonts" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/img" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/js" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/js/bootstrap.min.js" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/js/jquery.easing.min.js" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/js/wow.min.js" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/less" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/pages" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/sql/post-mapper.xml" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" charset="x-windows-949" />
-    <file url="file://$PROJECT_DIR$/src/main/webapp/resource" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resource/bootstrap" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resource/css" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resource/font-awesome" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resource/fonts" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resource/img" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/webapp/resource/js" charset="x-windows-949" />
   </component>
 </project>

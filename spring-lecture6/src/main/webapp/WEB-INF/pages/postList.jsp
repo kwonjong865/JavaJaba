@@ -12,91 +12,247 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%request.setCharacterEncoding("utf-8");%>
-  <html>
+<html lang="en">
+
 <head>
-    <title>게시판</title>
-  <link href="../resource/css/postDesign.css" rel="stylesheet" type="text/css">
-  <script type="text/javascript">
-    function MM_swapImgRestore() { //v3.0
-      var i,x,a=document.MM_sr; for(i=0;a&&i<a.length&&(x=a[i])&&x.oSrc;i++) x.src=x.oSrc;
-    }
-    function MM_preloadImages() { //v3.0
-      var d=document; if(d.images){ if(!d.MM_p) d.MM_p=new Array();
-        var i,j=d.MM_p.length,a=MM_preloadImages.arguments; for(i=0; i<a.length; i++)
-          if (a[i].indexOf("#")!=0){ d.MM_p[j]=new Image; d.MM_p[j++].src=a[i];}}
-    }
 
-    function MM_findObj(n, d) { //v4.01
-      var p,i,x;  if(!d) d=document; if((p=n.indexOf("?"))>0&&parent.frames.length) {
-        d=parent.frames[n.substring(p+1)].document; n=n.substring(0,p);}
-      if(!(x=d[n])&&d.all) x=d.all[n]; for (i=0;!x&&i<d.forms.length;i++) x=d.forms[i][n];
-      for(i=0;!x&&d.layers&&i<d.layers.length;i++) x=MM_findObj(n,d.layers[i].document);
-      if(!x && d.getElementById) x=d.getElementById(n); return x;
-    }
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    function MM_swapImage() { //v3.0
-      var i,j=0,x,a=MM_swapImage.arguments; document.MM_sr=new Array; for(i=0;i<(a.length-2);i+=3)
-        if ((x=MM_findObj(a[i]))!=null){document.MM_sr[j++]=x; if(!x.oSrc) x.oSrc=x.src; x.src=a[i+2];}
-    }
-  </script>
+  <title>kPU-중고</title>
+
+  <!-- Bootstrap Core CSS -->
+  <link href="resource/bower_components/bootstrap/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- MetisMenu CSS -->
+
+
+  <!-- Timeline CSS -->
+  <link href="resource/dist/css/timeline.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <link href="resource/dist/css/sb-admin-2.css" rel="stylesheet">
+
+
+
+
+
+  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+  <!--[if lt IE 9]>
+  <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+  <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+  <![endif]-->
+
 </head>
-<body onLoad="MM_preloadImages('../resource/image/전체.png','../resource/image/전자제품.png','../resource/image/스포츠.png','../resource/image/의류패션.png','../resource/image/도서.png','../resource/image/가구.png','../resource/image/기타.png')">
 
-<div id="table_wrap">
-  <div id="category_box">
-    <div class="category"><a href="/postList" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image1','','../resource/image/전체.png',1)"><img src="../resource/image/all.png" width="80" height="50" id="Image1"></a></div>
-    <div class="category"><a href="/postCategory?itemCategory=<%=URLEncoder.encode("전자제품", "utf-8")%>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image2','','../resource/image/전자제품.png',2)"><img src="../resource/image/elect.png" width="80" height="50" id="Image2"></a></div>
-    <div class="category"><a href="/postCategory?itemCategory=<%=URLEncoder.encode("스포츠", "utf-8")%>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image3','','../resource/image/스포츠.png',3)"><img src="../resource/image/sports.png" width="80" height="50" id="Image3"></a></div>
-    <div class="category"><a href="/postCategory?itemCategory=<%=URLEncoder.encode("의류패션", "utf-8")%>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image4','','../resource/image/의류패션.png',4)"><img src="../resource/image/fashion.png" width="80" height="50" id="Image4"></a></div>
-    <div class="category"><a href="/postCategory?itemCategory=<%=URLEncoder.encode("도서", "utf-8")%>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image5','','../resource/image/도서.png',5)"><img src="../resource/image/book.png" width="80" height="50" id="Image5"></a></div>
-    <div class="category"><a href="/postCategory?itemCategory=<%=URLEncoder.encode("가구", "utf-8")%>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image6','','../resource/image/가구.png',6)"><img src="../resource/image/furniture.png" width="80" height="50" id="Image6"></a></div>
-    <div class="category"><a href="/postCategory?itemCategory=<%=URLEncoder.encode("기타", "utf-8")%>" onMouseOut="MM_swapImgRestore()" onMouseOver="MM_swapImage('Image7','','../resource/image/기타.png',7)"><img src="../resource/image/etc.png" width="80" height="50" id="Image7"></a></div>
-  </div>
-  <table width="980" border="0"  cellspacing="0">
-  <tr>
-    <th width="10%" scope="col">번호</th>
-    <th width="15%" scope="col">분류</th>
-    <th width="15%" scope="col">작성자</th>
-    <th width="40%" scope="col">제목</th>
-    <th width="20%" scope="col">등록일</th>
-  </tr>
-    </table>
-    <div style="width: 1000px; height: 300px; overflow: auto">
-      <table width="980" border="0"  cellspacing="0">
-<c:forEach var="post" items="${postList}" varStatus="status">
-  <tr>
-    <td  width="10%" align="center">${post.postid}</td>
-    <td  width="15%" align="center">${post.category}</td>
-    <td  width="15%" align="center">${post.maker}</td>
-    <td  width="40%">
-      <a href="/postDetail?postId=${post.postid}">${post.title}</a>
-    </td>
-    <td  width="20%" align="center">${post.makedate}</td>
-  </tr>
-</c:forEach>
-</table>
-  </div>
+<body>
 
-  </div>
+<div id="wrapper">
 
-</td>
-<table width="980" border="0" cellspacing="0">
-    <tr>
-    <td width=30%></td>
-    <td align="center" WIDTH="40%">
-    <form action="/postSearchController" method="post" accept-charset="utf-8">
-    <select name="select">
-      <option value="title">제목</option>
-      <option value="content">내용</option>
-      <option value="itemname">물품명</option>
-    </select>
-    <input type="text" size="20" maxlength="30" name="keyword" />
-    <input type="submit" value="검색" />
-  </form>
-    </td>
-    <td align="right" WIDTH="30%"><a href="/postForm">글쓰기&nbsp;&nbsp;</a></td>
-  </tr>
-</table>
+  <!-- Navigation -->
+  <nav class="navbar navbar-default navbar-static-top" role="navigation" style="margin-bottom: 0">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="index.html">KPU-중고</a>
+    </div>
+    <!-- /.navbar-header -->
+
+
+    <!-- /.navbar-top-links -->
+
+    <div class="navbar-default sidebar" role="navigation">
+      <div class="sidebar-nav navbar-collapse">
+        <ul>
+
+          <li>
+            <a href="#"><i class="fa fa-sitemap fa-fw"></i> Multi-Level Dropdown<span class="fa arrow"></span></a>
+
+            <!-- /.nav-second-level -->
+          </li>
+          <li>
+            <a href="#"><i class="fa fa-files-o fa-fw"></i> Sample Pages<span class="fa arrow"></span></a>
+
+            <!-- /.nav-second-level -->
+          </li>
+        </ul>
+      </div>
+      <!-- /.sidebar-collapse -->
+    </div>
+    <!-- /.navbar-static-side -->
+  </nav>
+
+  <div id="page-wrapper">
+    <div class="row">
+      <div class="col-lg-12">
+        <h1 class="page-header"></h1>
+      </div>
+      <!-- /.col-lg-12 -->
+    </div>
+    <!-- /.row -->
+    <div class="row">
+      <div class="col-lg-3 col-md-6">
+        <div class="panel panel-primary">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="fa fa-comments fa-5x"></i>
+              </div>
+              <div class="col-xs-9 text-right">
+                <div class="huge">
+                  <span class="glyphicon glyphicon-book" aria-hidden="true"></span></div>
+                <div>도서</div>
+              </div>
+            </div>
+          </div>
+          <a href="/postCategory?itemCategory=<%=URLEncoder.encode("도서", "utf-8")%>">
+            <div class="panel-footer">
+              <span class="pull-left">View Details</span>
+              <span class="pull-right"><i class="glyphicon glyphicon-folder-open"></i></span>
+              <div class="clearfix"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="panel panel-green">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="fa fa-tasks fa-5x"></i>
+              </div>
+              <div class="col-xs-9 text-right">
+                <div class="huge"> <span class="glyphicon glyphicon-phone" aria-hidden="true"></span></div>
+                <div> 전자제품</div>
+              </div>
+            </div>
+          </div>
+          <a href="/postCategory?itemCategory=<%=URLEncoder.encode("전자제품", "utf-8")%>">
+            <div class="panel-footer">
+              <span class="pull-left">View Details</span>
+              <span class="pull-right"><i class="glyphicon glyphicon-camera"></i></span>
+              <div class="clearfix"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="panel panel-yellow">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="fa fa-shopping-cart fa-5x"></i>
+              </div>
+              <div class="col-xs-9 text-right">
+                <div class="huge"><span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span></div>
+                <div>의류 </div>
+              </div>
+            </div>
+          </div>
+          <a href="/postCategory?itemCategory=<%=URLEncoder.encode("의류패션", "utf-8")%>">
+            <div class="panel-footer">
+              <span class="pull-left">View Details</span>
+              <span class="pull-right"><i class="glyphicon glyphicon-user"></i></span>
+              <div class="clearfix"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+      <div class="col-lg-3 col-md-6">
+        <div class="panel panel-red">
+          <div class="panel-heading">
+            <div class="row">
+              <div class="col-xs-3">
+                <i class="fa fa-support fa-5x"></i>
+              </div>
+              <div class="col-xs-9 text-right">
+                <div class="huge"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></div>
+                <div>가구</div>
+              </div>
+            </div>
+          </div>
+          <a href="/postCategory?itemCategory=<%=URLEncoder.encode("가구", "utf-8")%>" >
+            <div class="panel-footer">
+              <span class="pull-left">View Details</span>
+              <span class="pull-right"><i class="glyphicon glyphicon-bed"></i></span>
+              <div class="clearfix"></div>
+            </div>
+          </a>
+        </div>
+      </div>
+    </div>
+    <!-- /.row -->
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <i class="fa fa-bar-chart-o fa-fw"></i> 전체 게시글
+
+          </div>
+          <!-- /.panel-heading -->
+          <div class="panel-body">
+            <div id="morris-area-chart">
+
+              <table width="980" border="0"  cellspacing="0">
+                <tr>
+                  <th width="10%" scope="col">번호</th>
+                  <th width="15%" scope="col">분류</th>
+                  <th width="15%" scope="col">작성자</th>
+                  <th width="40%" scope="col">제목</th>
+                  <th width="20%" scope="col">등록일</th>
+                </tr>
+              </table>
+              <div style="width: 1000px; height: 300px; overflow: auto">
+                <table width="980" border="0"  cellspacing="0">
+                  <c:forEach var="post" items="${postList}" varStatus="status">
+                    <tr>
+                      <td  width="10%" align="center">${post.postid}</td>
+                      <td  width="15%" align="center">${post.category}</td>
+                      <td  width="15%" align="center">${post.maker}</td>
+                      <td  width="40%">
+                        <a href="/postDetail?postId=${post.postid}">${post.title}</a>
+                      </td>
+                      <td  width="20%" align="center">${post.makedate}</td>
+                    </tr>
+                  </c:forEach>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- /.panel-body -->
+        </div>
+        <!-- /.panel -->
+
+        <!-- /.panel -->
+
+        <!-- /.panel -->
+      </div>
+      <!-- /.col-lg-8 -->
+
+      <!-- /.col-lg-4 -->
+    </div>
+    <!-- /.row -->
+  </div>
+  <!-- /#page-wrapper -->
+
+</div>
+<!-- /#wrapper -->
+
+<!-- jQuery -->
+
+<script src="resource/js/morris-data.js"></script>
+
+<!-- Custom Theme JavaScript -->
+<script src="resource/dist/js/sb-admin-2.js"></script>
 
 </body>
+
 </html>

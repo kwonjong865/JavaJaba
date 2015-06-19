@@ -36,9 +36,8 @@
 </head>
 <body>
 <% Map post = (Map) request.getAttribute("post");%>
-<form name="writeFrom" method="post" action = "/postUpdate" enctype="multipart/form-data">
+<form name="writeFrom" method="post" action = "/postInsert">
   <input type="hidden" name="maker" value="<%=session.getAttribute("USERID") %>">
-  <input type="hidden" name="postId" value="<%=post.get("postid")%>">
   <table width="514" border="1" align="center" cellspacing="0" cellpadding="3">
     <tr>
       <th scope="row" height="10%">물품범주</th>
