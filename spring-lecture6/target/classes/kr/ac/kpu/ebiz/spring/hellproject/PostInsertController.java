@@ -7,6 +7,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
@@ -22,11 +25,12 @@ public class PostInsertController {
     PostRepository postRepository;
 
     @RequestMapping(method = RequestMethod.POST)
-    public ModelAndView insert(@RequestParam String category, String maker, String password, String phone,
+    public ModelAndView insert(HttpServletRequest req, HttpServletResponse resp,@RequestParam String category, String maker, String password, String phone,
                                String title,String itemName, String price, String content, String imageFile) {
         Map post = new HashMap();
+        HttpSession session = req.getSession();
         post.put("category", category);
-        post.put("maker",maker);
+        post.put("maker",session.getAttribute("id")); // 이게 사용자
         post.put("password",password);
         post.put("phone",phone);
         post.put("title",title);

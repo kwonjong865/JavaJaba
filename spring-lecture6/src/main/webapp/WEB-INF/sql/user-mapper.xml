@@ -16,8 +16,8 @@
   </select>
 
   <insert id="insert" parameterType="map">
-    INSERT INTO usertable(userid, pwd, username, usernum, email, address, mobile)
-    VALUES (#{userId},#{pwd},#{userName},#{userNum}, #{email}, #{address}, #{mobile})
+    INSERT INTO usertable(userid, pwd, username)
+    VALUES (#{userId},#{pwd},#{userName})
   </insert>
 
 </mapper>

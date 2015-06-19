@@ -16,12 +16,6 @@
 로그인 성공<br>
   아이디 : ${userId}<br>
   비밀번호 : ${pwd}<br>
-<%--
-<c:forEach var="name"  items="${pageContext.session.attributeNames}">
-  Name:  ${name}
-  Value: ${sessionScope[name]}<br>
-</c:forEach>
---%>
 <%= session.getAttribute("USERNAME") %>
 </body>
 </html>
