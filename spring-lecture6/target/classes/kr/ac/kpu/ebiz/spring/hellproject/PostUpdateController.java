@@ -35,9 +35,8 @@ public class PostUpdateController {
     }
 
     @RequestMapping(value = "/postUpdate", method = RequestMethod.POST)
-    public String fileSubmit(HttpServletRequest req, HttpServletResponse resp,FileDTO dto) {
+    public String fileSubmit(FileDTO dto) {
         MultipartFile uploadfile = dto.getImageFile();
-        HttpSession session = req.getSession();
         if (uploadfile != null) {
             String fileName = uploadfile.getOriginalFilename();
             dto.setFileName(fileName);

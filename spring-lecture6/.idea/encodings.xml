@@ -3,6 +3,7 @@
   <component name="Encoding">
     <file url="file://$PROJECT_DIR$" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/main/java/kr/ac/kpu/ebiz/spring/hellproject/PostCategoryListController.java" charset="x-windows-949" />
+    <file url="file://$PROJECT_DIR$/src/main/java/kr/ac/kpu/ebiz/spring/hellproject/PostInsertController.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/kr/ac/kpu/ebiz/spring/hellproject/PostRepository.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/kr/ac/kpu/ebiz/spring/hellproject/PostRepositoryImpl.java" charset="x-windows-949" />
     <file url="file://$PROJECT_DIR$/src/main/java/kr/ac/kpu/ebiz/spring/hellproject/PostSearchController.java" charset="x-windows-949" />

@@ -135,8 +135,8 @@
     <div id="layer2" class="pop-layer">
         <div class="pop-container">
             <div class="pop-conts">
-                <form name="writeFrom" method="post" action = "/postInsert">
-                    <input type="hidden" name="maker" value="<%=session.getAttribute("USERID") %>">
+                <form name="writeFrom" method="post" action = "/postInsert"  enctype="multipart/form-data">
+                    <input type="hidden" name="maker" value="<%=session.getAttribute("id") %>">
                     <table width="100%" border="1" align="center" cellspacing="0" cellpadding="3">
                         <tr>
                             <th scope="row" height="10%" class="col-sm-2 control-label">물품범주</th>
@@ -152,7 +152,7 @@
                                 </select></td>
                         </tr>
                         <tr>
-                            <th scope="row" height="10%">제목</th>
+                            <th scope="row" height="10%">제목 </th>
                             <td>
                                 <input name="title" type="text" class="form-control" PLACEHOLDER="글 제목을 입력해주세요" >
                             </td>

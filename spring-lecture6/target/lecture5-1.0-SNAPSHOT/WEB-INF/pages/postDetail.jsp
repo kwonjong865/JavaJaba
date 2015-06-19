@@ -180,7 +180,7 @@
                         </td>
                     </tr>
                 </table>
-                <table width="800" cellpadding="3" align="center">
+                <table width="100%" cellpadding="3" align="center">
                     <tr align="right">
                         <td>
                             <%
