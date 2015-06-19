@@ -21,6 +21,7 @@ public class PostDetailController {
     public ModelAndView detailView(int postId) {
         ModelAndView mav = new ModelAndView("/postDetail");
         mav.addObject("postDetail", postRepository.select(postId));
+
         return mav;
     }
 }

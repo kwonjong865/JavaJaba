@@ -108,9 +108,6 @@
     </div>
     <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-            <li><a href="i">pu-소개</a></li>
-            <li><a href="#">pu-거래</a></li>
-            <li><a href="#">pu-정보</a></li>
 
         </ul>
     </div>
@@ -185,13 +182,13 @@
                         <td>
                             <%
                                 String id = (String) session.getAttribute("USERID"); //세션 짱짱맨!!
-                                //session.setAttribute("NUM", mainId);
+
                                 session.setAttribute("MAKER", post.get("maker"));
                                 session.setAttribute("ITEM", post.get("itemname"));
                                 session.setAttribute("PRICE", post.get("price"));
                                 session.setAttribute("SC", post.get("category"));
 
-                                if (true) {
+                                if (post.get("maker").equals(id)) {
                             %>
                             <!--/postModify?postId=<%=post.get("postid")%> -->
 
