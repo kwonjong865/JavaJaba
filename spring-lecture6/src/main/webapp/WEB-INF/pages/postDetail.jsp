@@ -143,7 +143,7 @@
                     <tr>
                         <td  style="text-align: left" colspan="1">작성자 : <%=post.get("maker")%></td>
                         <td style="text-align: right;font-size: 12px;vertical-align: bottom;">
-                            tell : <%=post.get("phone")%>
+                            tel : <%=post.get("phone")%>
                         </td>
 
                     </tr>
@@ -168,7 +168,7 @@
                                     if (post.get("imagefile") != null) {
                                 %>
                                 <!--상대경로! 자신의 위치에서 경로 찾음!-->
-                                <img src="imageFile/<%=post.get("imagefile")%>" width="100%" />
+                                <img src="../target/lecture5-1.0-SNAPSHOT/resource/uploadFile/<%=post.get("imagefile")%>" width="100%" />
                                 <%
                                     }
                                 %>
@@ -181,7 +181,7 @@
                     <tr align="right">
                         <td>
                             <%
-                                String id = (String) session.getAttribute("USERID"); //세션 짱짱맨!!
+                                String id = (String) session.getAttribute("id"); //세션 짱짱맨!!
 
                                 session.setAttribute("MAKER", post.get("maker"));
                                 session.setAttribute("ITEM", post.get("itemname"));

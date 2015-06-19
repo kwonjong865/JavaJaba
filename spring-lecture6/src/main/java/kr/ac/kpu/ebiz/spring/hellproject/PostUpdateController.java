@@ -40,7 +40,7 @@ public class PostUpdateController {
         if (uploadfile != null) {
             String fileName = uploadfile.getOriginalFilename();
             dto.setFileName(fileName);
-            String directory = "D:\\Develop\\test\\spring-lecture6\\JavaJaba\\spring-lecture6\\target\\lecture5-1.0-SNAPSHOT\\resource\\uploadFile\\";
+            String directory = "D:\\수작\\spring-lecture6\\target\\lecture5-1.0-SNAPSHOT\\resource\\uploadFile\\";
             try {
                 File file = new File(directory, fileName);
                 //실제적으로 target\\resource\\uploadFile 여기에 저장되는구나...
