@@ -19,13 +19,17 @@
         .layer .bg {position:absolute; top:0; left:0; width:100%; height:100%; background:#000; opacity:.5; filter:alpha(opacity=50);}
         .layer .pop-layer {display:block;}
 
-        .pop-layer {display:none; position: absolute; top: 50%; left: 50%; width: 80%; height:80%;  background-color:#fff; border: 5px solid #3571B5; z-index: 10;}
+        .pop-layer {display:none; position: absolute; top: 50%; left: 50%; width: 50%; height:80%;  background-color:#fff; border: 5px solid white; z-index: 10;}
         .pop-layer .pop-container {padding: 20px 25px;}
         .pop-layer p.ctxt {color: #666; line-height: 25px;}
         .pop-layer .btn-r {width: 100%; margin:10px 0 20px; padding-top: 10px; border-top: 1px solid #DDD; text-align:right;}
 
         a.cbtn {display:inline-block; height:25px; padding:0 14px 0; border:1px solid #304a8a; background-color:#3f5a9d; font-size:13px; color:#fff; line-height:25px;}
         a.cbtn:hover {border: 1px solid #091940; background-color:#1f326a; color:#fff;}
+
+        table{
+            border: white solid;
+        }
     </style>
 </head>
 <body>
@@ -126,11 +130,11 @@
             <div class="pop-conts">
                 <form name="writeFrom" method="post" action = "/postInsert">
                     <input type="hidden" name="maker" value="<%=session.getAttribute("USERID") %>">
-                    <table width="514" border="1" align="center" cellspacing="0" cellpadding="3">
+                    <table width="100%" border="1" align="center" cellspacing="0" cellpadding="3">
                         <tr>
-                            <th scope="row" height="10%">물품범주</th>
+                            <th scope="row" height="10%" class="col-sm-2 control-label">물품범주</th>
                             <td><label for="select"></label>
-                                <select name="category" size="1" id="select">
+                                <select name="category"  id="select" class="form-control">
                                     <option selected="selected">선택</option>
                                     <option value="전자제품">전자제품</option>
                                     <option value="스포츠">스포츠</option>
@@ -142,35 +146,35 @@
                         </tr>
                         <tr>
                             <th scope="row" height="10%">제목</th>
-                            <td><input name="title" type="text"  maxlength="23" size="50">
+                            <td>
+                                <input name="title" type="text" class="form-control" PLACEHOLDER="글 제목을 입력해주세요" >
                             </td>
                         </tr>
                         <tr>
                             <th scope="row" height="10%">물품이름</th>
-                            <td><input type="text" name="itemName" maxlength="10"></td>
+                            <td><input type="text" name="itemName"  class="form-control" maxlength="10" PLACEHOLDER="물품 이름을 입력해주세요"></td>
                         </tr>
                         <tr>
                             <th scope="row" height="10%">물품가격</th>
-                            <td><input type="text" name="price" maxlength="10">원</td>
+                            <td><input type="text" name="price"   class="form-control"maxlength="10" PLACEHOLDER="가격을 입력해주세요"></td>
                         </tr>
                         <tr>
                             <th scope="row" height="10%">연락처</th>
-                            <td><input type="text" name="phone" maxlength="20"></td>
+                            <td><input type="text" name="phone" class="form-control" maxlength="20" PLACEHOLDER="연락처를 입력해주세요"></td>
                         </tr>
                         <tr>
                             <th scope="row">물품소개</th>
-                            <td><textarea name="content" cols="45" rows="10"></textarea></td>
+                            <td><textarea name="content" cols="45"  class="form-control"rows="10.
+                            "></textarea></td>
                         </tr>
                         <tr>
                             <th scope="row" height="10%">비밀번호</th>
-                            <td><input type="password" name="password" maxlength="5"></td>
+                            <td><input type="password" name="password" class="form-control" maxlength="5"></td>
                         </tr>
                         <tr>
                             <th scope="row" height="10%">물품사진</th>
                             <td>
-
                                 <input type="file" name="imageFile" size=40>
-
                             </td>
                         </tr>
                         <tr>

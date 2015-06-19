@@ -36,7 +36,7 @@
 </head>
 <body>
 <% Map post = (Map) request.getAttribute("post");%>
-<form name="writeFrom" method="post" action = "/postInsert">
+<form name="writeFrom" method="get" action = "/postUpdate">
   <input type="hidden" name="maker" value="<%=session.getAttribute("USERID") %>">
   <table width="514" border="1" align="center" cellspacing="0" cellpadding="3">
     <tr>

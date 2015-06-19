@@ -40,7 +40,6 @@ public class PostInsertController {
         post.put("makedate",new Date());
         post.put("imagefile",imageFile);
         postRepository.insert(post);
-
         ModelAndView mav = new ModelAndView("/postList");
         mav.addObject("postList", postRepository.selectAll());
         return mav;
