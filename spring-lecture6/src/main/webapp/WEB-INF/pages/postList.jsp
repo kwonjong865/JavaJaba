@@ -39,9 +39,7 @@
     </div>
     <div class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-            <li><a href="i">pu-소개</a></li>
-            <li><a href="#">pu-거래</a></li>
-            <li><a href="#">pu-정보</a></li>
+
 
         </ul>
     </div>
@@ -111,7 +109,15 @@
                         </td>
                     </tr>
                 </table>
-
+                <form action="/postSearchController" method="post" accept-charset="utf-8">
+                    <select name="select">
+                        <option value="title">제목</option>
+                        <option value="content">내용</option>
+                        <option value="itemname">물품명</option>
+                    </select>
+                    <input type="text"  maxlength="30" name="keyword" />
+                    <input type="submit" value="검색" />
+                </form>
             </div>
 
         </div>

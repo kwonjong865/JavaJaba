@@ -30,7 +30,6 @@ public class PostSearchController {
         post.put("select", select);
         post.put("keyword", keyword);
 
-
         ModelAndView mav = new ModelAndView("/postList");
         mav.addObject("postList", postRepository.selectSearch(post));
         return mav;

@@ -20,9 +20,7 @@
   </div>
   <div class="collapse navbar-collapse">
     <ul class="nav navbar-nav">
-      <li><a href="i">pu-소개</a></li>
-      <li><a href="#">pu-거래</a></li>
-      <li><a href="#">pu-정보</a></li>
+
 
     </ul>
   </div>
@@ -46,7 +44,7 @@
             <h4>Pu-소개</h4>
             <hr>
             <p>pu- 란 한국산업기술대학교(kpu)의 학생들이 거래,정보교환을 위한 사이트 입니다.  <br>
-              서적및 가전제품, 의류둥을 거래 할 수 있는 pu-거래와 정보 교환 및 학교생활에 대해 토론하는 pu-정보등으로 이루어져있습니다.
+              서적및 가전제품, 의류둥을 거래 할 수 있는 pu-거래등으로 이루어져있습니다.
             </p>
           </div>
         </div>
